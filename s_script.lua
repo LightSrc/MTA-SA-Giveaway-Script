@@ -12,7 +12,7 @@ end
 addCommandHandler("giveaway", addParticipant)
 
 function startGiveaway(thePlayer, commandName, arg)
-	if getElementData(thePlayer, "aduty") == true then
+	if isObjectInACLGroup( 'user.'..getAccountName( getPlayerAccount( thePlayer ) ), aclGetGroup( 'Admin' ) ) then
 		if not getElementData(giveway, "isAllowedGiveaway") or getElementData(giveway, "isAllowedGiveaway") == false then
 			setElementData(giveway, "isAllowedGiveaway", true)
 			outputChatBox("#FFFFFF[#990012GIVEAWAY#FFFFFF] Write /giveaway in 'T' chat to take part in the " .. whatAEvent .." giveaway. ", getRootElement(), 255, 255, 255 , true)
